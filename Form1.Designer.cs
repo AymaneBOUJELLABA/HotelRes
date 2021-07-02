@@ -1,7 +1,7 @@
 ﻿
 namespace HotelReservation
 {
-    partial class Form1
+    partial class HotelReservationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,33 @@ namespace HotelReservation
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.ucHotel1 = new HotelReservation.userControls.ucHotel();
+            this.SuspendLayout();
+            // 
+            // ucHotel1
+            // 
+            this.ucHotel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ucHotel1.Location = new System.Drawing.Point(-4, 0);
+            this.ucHotel1.Name = "ucHotel1";
+            this.ucHotel1.Size = new System.Drawing.Size(408, 206);
+            this.ucHotel1.TabIndex = 0;
+            this.ucHotel1.Load += new System.EventHandler(this.ucHotel1_Load);
+            // 
+            // HotelReservationForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(402, 203);
+            this.Controls.Add(this.ucHotel1);
+            this.Name = "HotelReservationForm";
+            this.Text = "Hotel Reservation";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private userControls.ucHotel ucHotel1;
     }
 }
 

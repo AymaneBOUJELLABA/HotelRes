@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HotelReservation
+namespace HotelReservation.userControls
 {
-    public partial class HotelReservationForm : Form
+    public partial class ucHotel : UserControl
     {
-        public HotelReservationForm()
+        public ucHotel()
         {
             InitializeComponent();
-        }
-
-        private void ucHotel1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
