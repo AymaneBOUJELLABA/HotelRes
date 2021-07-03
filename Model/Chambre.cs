@@ -8,19 +8,19 @@ namespace HotelReservation.Model
 {
     public class Chambre
     {
-        private int id { get; set; }
-        private Type type { get; set; }
-        private String prenom { get; set; }
-        public Chambre(Type type, string prenom)
+        public int id { get; set; }
+        public int type_id { get; set; }
+        public String numero { get; set; }
+        public Chambre(int type, string numero)
         {
-            this.type = type;
-            this.prenom = prenom;
+            this.type_id = type;
+            this.numero = numero;
         }
-        public Chambre(int id, Type type, string prenom)
+        public Chambre(int id, int type, string numero)
         {
             this.id = id;
-            this.type = type;
-            this.prenom = prenom;
+            this.type_id = type;
+            this.numero = numero;
         }
         public Chambre()
         {

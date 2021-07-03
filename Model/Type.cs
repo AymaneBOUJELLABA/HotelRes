@@ -8,19 +8,16 @@ namespace HotelReservation.Model
 {
     public class Type
     {
-        private int id { get; set; }
-        private String classe { get; set; }
-        private int nbrlits { get; set; }
-        public Type(string classe, int nbrlits)
+        public int id { get; set; }
+        public String classe { get; set; }
+        public Type(string classe)
         {
             this.classe = classe;
-            this.nbrlits = nbrlits;
         }
-        public Type(int id, string classe, int nbrlits)
+        public Type(int id, string classe)
         {
             this.id = id;
             this.classe = classe;
-            this.nbrlits = nbrlits;
         }
         public Type()
         {

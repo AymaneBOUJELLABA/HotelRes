@@ -7,24 +7,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace HotelReservation.userControls
 {
     public partial class ucChambre : UserControl
     {
-        public ucChambre()
+        public Model.Chambre chambre{get; set;}
+        public Label reserved = null;
+        public ucChambre(Model.Chambre chambre,DateTime date)
         {
+            this.chambre = chambre;
             InitializeComponent();
+
+            int userReservee = Model.dbReservation.isReserved(chambre.id,date);
+            lblNum.Text = "N°" + chambre.numero;
+
+            lblReserved.Text = userReservee != -1 ? "Réservé par " + Model.dbReservation.getUsernameFromId(userReservee) : "Disponible";
+            if(userReservee != -1)
+                BackColor = System.Drawing.Color.Red;
+            Model.TypeChambres types = new Model.TypeChambres();
+            foreach(Model.Type t in Model.TypeChambres.list)
+            {
+                if(t.id.Equals(chambre.type_id))
+                {
+                    lblType.Text = "Chambre " + t.classe;
+                    break;
+                }
+            }
+        }
+        private void réserverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReservationForm resform = new ReservationForm(this);
+            resform.Show();
         }
 
-        private void ucChambre_Load(object sender, EventArgs e)
+        private void libérerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void ucMenuRes_Opening(object sender, CancelEventArgs e)
-        {
-
+            if ((MessageBox.Show("Voulez vous libérer la chambre ?", "Attention!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+            {
+                Model.dbReservation.libererChambre(this.chambre);
+                ucHotel p = (ucHotel)this.Parent.Parent;
+                p.reload();
+            }
         }
     }
 }

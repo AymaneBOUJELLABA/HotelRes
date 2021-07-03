@@ -8,37 +8,22 @@ namespace HotelReservation.Model
 {
     public class Client
     {
-        private int id { get; set; }
-        private String nom { get; set; }
-        private String prenom { get; set; }
-        private String cin { get; set; }
-        private DateTime dateNaissance { get; set; }
-        private char sexe { get; set; }
-        private String nationalite { get; set; }
+        public int id { get; set; }
+        public String nom { get; set; }
 
         public Client()
         {
         }
 
-        public Client(int id, string nom, string prenom, string cin, DateTime dateNaissance, char sexe, string nationalite)
+        public Client(int id, string nom)
         {
             this.id = id;
             this.nom = nom;
-            this.prenom = prenom;
-            this.cin = cin;
-            this.dateNaissance = dateNaissance;
-            this.sexe = sexe;
-            this.nationalite = nationalite;
         }
 
-        public Client(string nom, string prenom, string cin, DateTime dateNaissance, char sexe, string nationalite)
+        public Client(string nom)
         {
             this.nom = nom;
-            this.prenom = prenom;
-            this.cin = cin;
-            this.dateNaissance = dateNaissance;
-            this.sexe = sexe;
-            this.nationalite = nationalite;
         }
     }
 }

@@ -12,14 +12,17 @@ namespace HotelReservation
 {
     public partial class HotelReservationForm : Form
     {
+        public userControls.ucHotel hotel { get; set; }
         public HotelReservationForm()
         {
             InitializeComponent();
+            this.hotel = ucHotel1;
         }
 
-        private void ucHotel1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            
+            this.hotel.reload();
         }
     }
 }

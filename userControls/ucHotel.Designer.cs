@@ -29,45 +29,57 @@ namespace HotelReservation.userControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.ucChambre2 = new HotelReservation.userControls.ucChambre();
-            this.ucChambre1 = new HotelReservation.userControls.ucChambre();
+            this.ChambresPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.date = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // ucChambre2
+            // ChambresPanel
             // 
-            this.ucChambre2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ucChambre2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ucChambre2.Location = new System.Drawing.Point(15, 19);
-            this.ucChambre2.Name = "ucChambre2";
-            this.ucChambre2.Size = new System.Drawing.Size(180, 168);
-            this.ucChambre2.TabIndex = 1;
+            this.ChambresPanel.AutoSize = true;
+            this.ChambresPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ChambresPanel.ColumnCount = 4;
+            this.ChambresPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.ChambresPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.ChambresPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.ChambresPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.ChambresPanel.Location = new System.Drawing.Point(3, 3);
+            this.ChambresPanel.Margin = new System.Windows.Forms.Padding(3, 20, 0, 0);
+            this.ChambresPanel.Name = "ChambresPanel";
+            this.ChambresPanel.RowCount = 2;
+            this.ChambresPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.ChambresPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.ChambresPanel.Size = new System.Drawing.Size(0, 0);
+            this.ChambresPanel.TabIndex = 0;
             // 
-            // ucChambre1
+            // date
             // 
-            this.ucChambre1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ucChambre1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ucChambre1.Location = new System.Drawing.Point(213, 19);
-            this.ucChambre1.Name = "ucChambre1";
-            this.ucChambre1.Size = new System.Drawing.Size(180, 168);
-            this.ucChambre1.TabIndex = 0;
+            this.date.Location = new System.Drawing.Point(4, 350);
+            this.date.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(200, 20);
+            this.date.TabIndex = 1;
+            this.date.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // ucHotel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Controls.Add(this.ucChambre2);
-            this.Controls.Add(this.ucChambre1);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.date);
+            this.Controls.Add(this.ChambresPanel);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.Name = "ucHotel";
-            this.Size = new System.Drawing.Size(410, 209);
+            this.Size = new System.Drawing.Size(207, 380);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private ucChambre ucChambre1;
-        private ucChambre ucChambre2;
+        private System.Windows.Forms.TableLayoutPanel ChambresPanel;
+        private System.Windows.Forms.DateTimePicker date;
     }
 }
