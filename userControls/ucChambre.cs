@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelReservation.Properties;
 using Microsoft.VisualBasic;
 
 namespace HotelReservation.userControls
 {
     public partial class ucChambre : UserControl
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucChambre));
+
         public Model.Chambre chambre{get; set;}
-        public Label reserved = null;
-        public ucChambre(Model.Chambre chambre,DateTime date)
+        public DateTime date { get; set; }
+        public ucChambre(Model.Chambre chambre,DateTime searchdate)
         {
+            this.date = searchdate;
             this.chambre = chambre;
             InitializeComponent();
 
@@ -25,7 +29,13 @@ namespace HotelReservation.userControls
 
             lblReserved.Text = userReservee != -1 ? "Réservé par " + Model.dbReservation.getUsernameFromId(userReservee) : "Disponible";
             if(userReservee != -1)
+            {
+
+                this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("closedDoor")));
+                this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                 BackColor = System.Drawing.Color.Red;
+            }
+                
             Model.TypeChambres types = new Model.TypeChambres();
             foreach(Model.Type t in Model.TypeChambres.list)
             {

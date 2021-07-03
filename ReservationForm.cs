@@ -20,6 +20,7 @@ namespace HotelReservation
 
             InitializeComponent();
             Title.Text += " "+currentucChambre.chambre.numero;
+            dateReservation.Value = currentucChambre.date;
         }
 
         private void confirmBtn_Click(object sender, EventArgs e)
@@ -29,7 +30,6 @@ namespace HotelReservation
             int jours = (int)nbrJoursReserv.Value;
 
             DB.ReservChambre(username, currentucChambre.chambre.id, dateRes, jours);
-
 
             ucHotel p = (ucHotel)currentucChambre.Parent.Parent;
             p.reload();

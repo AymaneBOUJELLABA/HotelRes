@@ -157,6 +157,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\closedDoor.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\closedDoor.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
