@@ -217,16 +217,17 @@ namespace HotelReservation.Model
             cnx.Close();
         }
 
-        public static void libererChambre(Chambre chambre)
+        public static void libererChambre(userControls.ucChambre chambre)
         {
             try
             {
                 cnx.Open();
                 MySqlCommand cmd = cnx.CreateCommand();
 
-                cmd.CommandText = "DELETE FROM reservation where chambre_id = ?chambre_id";
-                cmd.Parameters.Add("?chambre_id", MySqlDbType.Int16).Value = chambre.id;
-                Console.WriteLine("liberer : " + cmd.CommandText.ToString());
+                cmd.CommandText = "DELETE FROM reservation where chambre_id = ?chambre_id AND dateReservation LIKE ?dateReservation";
+                cmd.Parameters.Add("?chambre_id", MySqlDbType.Int16).Value = chambre.chambre.id;
+                cmd.Parameters.Add("?dateReservation", MySqlDbType.VarChar).Value = chambre.date.ToString("yyyy-MM-dd");
+                Console.WriteLine("liberer : " + cmd.ToString());
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)

@@ -58,7 +58,7 @@ namespace HotelReservation.userControls
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                     MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
             {
-                Model.dbReservation.libererChambre(this.chambre);
+                Model.dbReservation.libererChambre(this);
                 ucHotel p = (ucHotel)this.Parent.Parent;
                 p.reload();
             }
